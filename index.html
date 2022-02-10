@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <p id="Tag">10</p>
+    </div>
+    <script>
+        let txt = "Assignment A will be conducted on 5 Feb. 2026";
+        document.getElementById("Tag").innerHTML = txt.match(/[4-7]/g);
+    </script>
+
+
+
+
+
+    <style>
+        p.Tag {
+            color: red;
+            text-decoration: underline;
+        }
+
+        div {
+            color: blue;
+        }
+    </style>
+</body>
+
+</html>
