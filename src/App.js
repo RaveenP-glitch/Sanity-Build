@@ -1,26 +1,65 @@
-import React from 'react';
+import React from "react";
 
-import { AboutUs, Chef, FindUs, Footer, Gallery, Header, Intro, Laurels, SpecialMenu } from './container';
-import { Navbar } from './components';
-import './App.css';
-import HookCounterFour from './components/HookCounterFour';
-import SimpleCounter from './components/SimpleCounter';
+function App() {
+  const ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 5, 3, 5, 7, 4, 2];
 
-const App = () => (
-  <div>
-    <Navbar />
-    <Header />
-    <AboutUs />
-    <SpecialMenu />
-    <Chef />
-    <Intro />
-    <Laurels />
-    <Gallery />
-    <FindUs />
-    <Footer />
-    <HookCounterFour />
-    <SimpleCounter />
-  </div>
-);
+  return (<div>
+    <DivideBeforeConquer array={ARRAY} />
+    </div>);
+}
+
+const CombineArrays = ({slice1, slice2}) =>{
+
+  const centeredRow = {
+    display: "flex",
+    fontSize: 30,
+    justifyContent: "center",
+  };
+  const centerdColumn = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    paddingRight: 5,
+    paddingLeft: 5,
+  };
+
+
+
+};
+
+const DivideBeforeConquer = ({ array }) => {
+  const middle = Math.floor(array.length / 2);
+  const slice1 = array.slice(0, middle);
+  const slice2 = array.slice(middle);
+
+  const centeredRow = {
+    display: "flex",
+    fontSize: 30,
+    justifyContent: "center",
+  };
+  const centerdColumn = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    paddingRight: 5,
+    paddingLeft: 5,
+  };
+
+  return (
+    <>
+      <p style={centeredRow}>{`[${array.toString()}]`}</p>
+      {array.length !== 1 && (
+        <div style={centeredRow}>
+          <div style={centerdColumn}>
+            <DivideBeforeConquer array={slice1} />
+          </div>
+          <div style={centerdColumn}>
+            <DivideBeforeConquer array={slice2} />
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 
 export default App;
