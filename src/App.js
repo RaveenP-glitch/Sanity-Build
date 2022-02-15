@@ -1,31 +1,15 @@
 import React from "react";
+import Counter from "./components/Counter";
 
 function App() {
   const ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 5, 3, 5, 7, 4, 2];
 
   return (<div>
     <DivideBeforeConquer array={ARRAY} />
+    <Counter />
     </div>);
 }
 
-const CombineArrays = ({slice1, slice2}) =>{
-
-  const centeredRow = {
-    display: "flex",
-    fontSize: 30,
-    justifyContent: "center",
-  };
-  const centerdColumn = {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    paddingRight: 5,
-    paddingLeft: 5,
-  };
-
-
-
-};
 
 const DivideBeforeConquer = ({ array }) => {
   const middle = Math.floor(array.length / 2);
