@@ -17,9 +17,38 @@ class HashTable{
         let address = this._hash(key);
         if(!this.data[address]){
             this.data[address] = [];
-            this.data[address].push([key, value])
             
         }
+            this.data[address].push([key,value])
+            return this.data
+        
+    }
+
+    get(key){
+        let address = this._hash(key);
+        const currentBucket = this.data[address];
+        console.log(currentBucket)
+        if(currentBucket){
+            for(let i=0; i<currentBucket.length; i++){
+                if(currentBucket[i][0] == key){
+                    return currentBucket[i][1]
+                }
+            }
+
+        }
+        return undefined
+
+    }
+
+    keys(){
+        const keysArray = [];
+        for (let i=0; i<this.data.length; i++){
+            if(this.data[i]){
+                console.log(this.data[i][0][0]);
+                keysArray.push(this.data[i][0])
+            }
+        }
+        return keysArray;
     }
 
 
@@ -27,5 +56,9 @@ class HashTable{
 
 
 const myHashTable = new HashTable(50);
-myHashTable._hash('grapes');
+myHashTable.set('grapes', 10000);
+myHashTable.set('apple', 54);
+myHashTable.set('orange', 2);
+myHashTable.keys();
+
 
