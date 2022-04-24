@@ -55,7 +55,7 @@ class BinarySearchTree{
         return false;
     }
 
-    remove(){
+    remove(value){
         if(!this.root){
             return false;
         }
@@ -123,7 +123,17 @@ class BinarySearchTree{
                     leftmost.left = currentNode.left;
                     leftmost.right = currentNode.right;
 
+                    if(parentNode === null){
+                        this.root = leftmost;
+                    }else{
+                        if(currentNode.value < parentNode.value){
+                            parentNode.left = leftmost;
+                        }else if(currentNode.value > parentNode.value){
+                            parentNode.rightt = leftmost;
+                        }
+                    }
                 }
+                return true;
             }
         }
     }
@@ -142,6 +152,7 @@ tree.insert(20);
 tree.insert(170);
 tree.insert(15);
 tree.insert(1);
+console.log(tree.remove(15));
 console.log(tree.lookup(170));
 console.log(JSON.stringify(traverse(tree.root)));
 
